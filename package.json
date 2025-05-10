@@ -12,7 +12,8 @@
     "@faker-js/faker": "^9.7.0",
     "next": "^14.2.28",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "web_mock_generator": "file:"
   },
   "devDependencies": {
     "@types/node": "^20",
