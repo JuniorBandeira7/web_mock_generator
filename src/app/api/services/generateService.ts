@@ -16,7 +16,8 @@ export function generateService(bodyField: BodyField[], times: number) {
                         name: bodyField[i].name,
                         value: faker.number.int()
                     }
-                    field.push(nInt)
+                    let nIntJsonField = JSON.parse(`{${JSON.stringify(nInt.name)}: ${JSON.stringify(nInt.value)}}`)
+                    field.push(nIntJsonField)
                     break
 
                 case "Número":
@@ -24,7 +25,8 @@ export function generateService(bodyField: BodyField[], times: number) {
                         name: bodyField[i].name,
                         value: faker.number.float()
                     }
-                    field.push(n)
+                    let NJsonField = JSON.parse(`{${JSON.stringify(n.name)}: ${JSON.stringify(n.value)}}`)
+                    field.push(NJsonField)
                     break
 
                 case "Nome":
@@ -32,7 +34,8 @@ export function generateService(bodyField: BodyField[], times: number) {
                         name: bodyField[i].name,
                         value: faker.person.fullName()
                     }
-                    field.push(name)
+                    let nameJsonField = JSON.parse(`{${JSON.stringify(name.name)}: ${JSON.stringify(name.value)}}`)
+                    field.push(nameJsonField)
                 break
 
                 case "Nome de Empresa":
@@ -40,7 +43,8 @@ export function generateService(bodyField: BodyField[], times: number) {
                         name: bodyField[i].name,
                         value: faker.company.name()
                     }
-                    field.push(company)
+                    let companyJsonField = JSON.parse(`{${JSON.stringify(company.name)}: ${JSON.stringify(company.value)}}`)
+                    field.push(companyJsonField)
                 break
 
                 case "Email":
@@ -48,7 +52,8 @@ export function generateService(bodyField: BodyField[], times: number) {
                         name: bodyField[i].name,
                         value: faker.internet.email()
                     }
-                    field.push(email)
+                    let emailJsonField = JSON.parse(`{${JSON.stringify(email.name)}: ${JSON.stringify(email.value)}}`)
+                    field.push(emailJsonField)
                 break
 
                 case "Data de nascimento":
@@ -56,7 +61,8 @@ export function generateService(bodyField: BodyField[], times: number) {
                         name: bodyField[i].name,
                         value: faker.date.birthdate()
                     }
-                    field.push(birthdate)
+                    let birthdateJsonField = JSON.parse(`{${JSON.stringify(birthdate.name)}: ${JSON.stringify(birthdate.value)}}`)
+                    field.push(birthdateJsonField)
                 break
 
                 case "Senha":
@@ -64,7 +70,8 @@ export function generateService(bodyField: BodyField[], times: number) {
                         name: bodyField[i].name,
                         value: faker.internet.password()
                     }
-                    field.push(password)
+                    let passwordJsonField = JSON.parse(`{${JSON.stringify(password.name)}: ${JSON.stringify(password.value)}}`)
+                    field.push(passwordJsonField)
                 break
 
                 case "Telefone":
@@ -72,14 +79,22 @@ export function generateService(bodyField: BodyField[], times: number) {
                         name: bodyField[i].name,
                         value: faker.phone.number()
                     }
-                    field.push(job)
+                    let jobJsonField = JSON.parse(`{${JSON.stringify(job.name)}: ${JSON.stringify(job.value)}}`)
+                    field.push(jobJsonField)
                 break
 
                 default:
                     return "Erro de entrada"
             }
         }
-        response.push(field)
+        for (let i = 0; i < field.length; i++) {
+            if (i === 0) {
+                var mergedField = field[i]
+            } else {
+                mergedField = Object.assign(mergedField, field[i])
+            }
+        }
+        response.push(mergedField)
     }
     return response
 }
