@@ -10,5 +10,10 @@ export async function POST(req: Request, { params }: { params: { times: number}}
 
     if (typeof response === "string") return NextResponse.json({message: response}, {status: 400})
 
-    return NextResponse.json({message: "ok", response})
+    const data = JSON.stringify(response)
+
+    return new Response(data, {headers: {
+        'Content-type': 'application/json',
+        'Content-Disposition': 'attachment; filename="dados.json"'
+    }})
 }
