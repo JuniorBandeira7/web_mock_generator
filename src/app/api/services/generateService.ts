@@ -12,74 +12,74 @@ export function generateService(bodyField: BodyField[], times: number) {
         for (let i = 0; i < bodyField.length; i++) {
             switch (bodyField[i].type) {
                 case "Número Inteiro":
-                    let nInt: Field = {
+                    const nInt: Field = {
                         name: bodyField[i].name,
                         value: faker.number.int()
                     }
-                    let nIntJsonField = JSON.parse(`{${JSON.stringify(nInt.name)}: ${JSON.stringify(nInt.value)}}`)
+                    const nIntJsonField = JSON.parse(`{${JSON.stringify(nInt.name)}: ${JSON.stringify(nInt.value)}}`)
                     field.push(nIntJsonField)
                     break
 
                 case "Número":
-                    let n: Field = {
+                    const n: Field = {
                         name: bodyField[i].name,
                         value: faker.number.float()
                     }
-                    let NJsonField = JSON.parse(`{${JSON.stringify(n.name)}: ${JSON.stringify(n.value)}}`)
+                    const NJsonField = JSON.parse(`{${JSON.stringify(n.name)}: ${JSON.stringify(n.value)}}`)
                     field.push(NJsonField)
                     break
 
                 case "Nome":
-                    let name: Field = {
+                    const name: Field = {
                         name: bodyField[i].name,
                         value: faker.person.fullName()
                     }
-                    let nameJsonField = JSON.parse(`{${JSON.stringify(name.name)}: ${JSON.stringify(name.value)}}`)
+                    const nameJsonField = JSON.parse(`{${JSON.stringify(name.name)}: ${JSON.stringify(name.value)}}`)
                     field.push(nameJsonField)
                 break
 
                 case "Nome de Empresa":
-                    let company : Field = {
+                    const company : Field = {
                         name: bodyField[i].name,
                         value: faker.company.name()
                     }
-                    let companyJsonField = JSON.parse(`{${JSON.stringify(company.name)}: ${JSON.stringify(company.value)}}`)
+                    const companyJsonField = JSON.parse(`{${JSON.stringify(company.name)}: ${JSON.stringify(company.value)}}`)
                     field.push(companyJsonField)
                 break
 
                 case "Email":
-                    let email : Field = {
+                    const email : Field = {
                         name: bodyField[i].name,
                         value: faker.internet.email()
                     }
-                    let emailJsonField = JSON.parse(`{${JSON.stringify(email.name)}: ${JSON.stringify(email.value)}}`)
+                    const emailJsonField = JSON.parse(`{${JSON.stringify(email.name)}: ${JSON.stringify(email.value)}}`)
                     field.push(emailJsonField)
                 break
 
                 case "Data de nascimento":
-                    let birthdate : Field = {
+                    const birthdate : Field = {
                         name: bodyField[i].name,
                         value: faker.date.birthdate()
                     }
-                    let birthdateJsonField = JSON.parse(`{${JSON.stringify(birthdate.name)}: ${JSON.stringify(birthdate.value)}}`)
+                    const birthdateJsonField = JSON.parse(`{${JSON.stringify(birthdate.name)}: ${JSON.stringify(birthdate.value)}}`)
                     field.push(birthdateJsonField)
                 break
 
                 case "Senha":
-                    let password : Field = {
+                    const password : Field = {
                         name: bodyField[i].name,
                         value: faker.internet.password()
                     }
-                    let passwordJsonField = JSON.parse(`{${JSON.stringify(password.name)}: ${JSON.stringify(password.value)}}`)
+                    const passwordJsonField = JSON.parse(`{${JSON.stringify(password.name)}: ${JSON.stringify(password.value)}}`)
                     field.push(passwordJsonField)
                 break
 
                 case "Telefone":
-                    let job : Field = {
+                    const job : Field = {
                         name: bodyField[i].name,
                         value: faker.phone.number()
                     }
-                    let jobJsonField = JSON.parse(`{${JSON.stringify(job.name)}: ${JSON.stringify(job.value)}}`)
+                    const jobJsonField = JSON.parse(`{${JSON.stringify(job.name)}: ${JSON.stringify(job.value)}}`)
                     field.push(jobJsonField)
                 break
 

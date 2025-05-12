@@ -26,7 +26,7 @@ export default function GeradorSection() {
         const mergedField = obterDados()
         console.log(obterDados())
         try {
-            const response = await fetch(`/api/generate/${quantidade}`, {
+            await fetch(`/api/generate/${quantidade}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(mergedField)
@@ -49,6 +49,7 @@ export default function GeradorSection() {
                     <div>Nome do Campo</div>
                     <div>Tipo do Campo</div>
                 </div>
+                {/* eslint-disable-next-line react/jsx-key */}
                 {campos.map(() => (
                     <div className="flex flex-row gap-4" >
                         <input type="text" className="text-black" />
