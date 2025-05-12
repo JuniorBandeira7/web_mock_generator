@@ -10,7 +10,7 @@ export async function POST(req: Request, { params }: { params: { times: number}}
 
     if (typeof response === "string") return NextResponse.json({message: response}, {status: 400})
 
-    const data = JSON.stringify(response)
+    const data = '[' + response.map(obj => JSON.stringify(obj)).join(',\n') + ']'
 
     return new Response(data, {headers: {
         'Content-type': 'application/json',
