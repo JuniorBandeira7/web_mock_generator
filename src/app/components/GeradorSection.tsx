@@ -49,7 +49,6 @@ export default function GeradorSection() {
                     <div>Nome do Campo</div>
                     <div>Tipo do Campo</div>
                 </div>
-                {/* eslint-disable-next-line react/jsx-key */}
                 {campos.map(() => (
                     <div className="flex flex-row gap-4" >
                         <input type="text" className="text-black" />
