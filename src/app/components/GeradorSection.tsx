@@ -3,7 +3,10 @@ import { useState } from "react";
 import { Button } from "./Button";
 
 export default function GeradorSection() {
-    const [campos, setCampos] = useState([{ nome: '', tipo: '' }])
+    const [campos, setCampos] = useState([{ nome: 'Id', tipo: '' },
+        { nome: 'Nome', tipo: 'Nome' }, 
+        { nome: 'Email', tipo: 'Email' }, 
+        { nome: 'Senha', tipo: 'Senha' }])
     const [quantidade, setQuantidade] = useState<number>(1)
 
     const adcionarCampo = () => {
@@ -44,29 +47,58 @@ export default function GeradorSection() {
 
     return (
         <>
-            <section>
-                <div className="flex flex-row gap-4">
-                    <div>Nome do Campo</div>
-                    <div>Tipo do Campo</div>
+            <section className="gerador-section bg-gray-800 p-4 rounded-lg">
+                <div className="w-full flex mt-4 text-3xl">
+                    <h1>Gerador de Dados Falsos</h1>
                 </div>
-                {campos.map(() => (
-                    <div className="flex flex-row gap-4" >
-                        <input type="text" className="text-black" />
-                        <select name="type" id="type" className="text-black select">
-                            <option value="Número Inteiro">Número Inteiro</option>
-                            <option value="Número">Número</option>
-                            <option value="Nome">Nome</option>
-                            <option value="Email">Email</option>
-                            <option value="Data de nascimento">Data de nascimento</option>
-                            <option value="Senha">Senha</option>
-                            <option value="Telefone">Telefone</option>
-                        </select>
+                <div className="flex flex-row gap-4 mt-4">
+                    <span>Nome do Campo</span>
+                    <span className="ml-[90px] span2">Tipo do Campo</span>
+                </div>
+                <div className="flex flex-col gap-4 mt-4">
+                    {campos.map((campo, index) => (
+                        <div className="flex flex-row gap-4" key={index}>
+                            <input type="text" 
+                            className="" 
+                            value={campo.nome}
+                            onChange={(e) => {
+                                const novosCampos = [...campos]
+                                novosCampos[index].nome = e.target.value
+                                setCampos(novosCampos)
+                            }}
+                            />
+
+                            <select name="type" 
+                            id="type" 
+                            className="select" 
+                            value={campo.tipo}
+                            onChange={(e) => {
+                                const novosCampos = [...campos]
+                                novosCampos[index].tipo = e.target.value
+                                setCampos(novosCampos)
+                            }}
+
+                            >
+                                <option value="Número Inteiro">Número Inteiro</option>
+                                <option value="Número">Número</option>
+                                <option value="Nome">Nome</option>
+                                <option value="Email">Email</option>
+                                <option value="Data de nascimento">Data de nascimento</option>
+                                <option value="Senha">Senha</option>
+                                <option value="Telefone">Telefone</option>
+                            </select>
+                        </div>
+                    ))}
+                </div>
+                <div className="gap-4 flex items-end">
+                    <div>
+                        <span className="flex flex-col mt-4">Número de Linhas</span>
+                        <input type="number" className="mt-2" name="quantidade" id="quantidade" onChange={(e) => { setQuantidade(e.target.valueAsNumber) }}/>
                     </div>
-                ))}
-                <div className="flex flex-row gap-4">
-                    <input type="number" className="text-black" name="quantidade" id="quantidade" onChange={(e) => { setQuantidade(e.target.valueAsNumber) }} />
-                    <Button onClick={enviarEBaixar}>Obter dados</Button>
-                    <Button onClick={adcionarCampo}>Adicionar Campo</Button>
+                    <Button className="w-[175px]" onClick={adcionarCampo}>Adicionar Campo</Button>
+                </div>
+                <div className="flex flex-row gap-4 mt-4">
+                    <Button className="w-[207px]" onClick={enviarEBaixar}>Obter dados</Button>
                 </div>
             </section>
         </>
