@@ -4,7 +4,6 @@
 
 
 :root {
-  width: 100%;
   --background: #303030;
   --foreground: #ededed;
 }
@@ -19,6 +18,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+section {
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 input, select {
@@ -51,8 +56,12 @@ input[type=number] {
   /* Firefox */
 }
 
-.gerador-section {
+button {
+  height: 42px;
+}
 
+.btnEnviar {
+  width: 207px;
 }
 
 @media (min-width: 1500px) {
@@ -68,8 +77,12 @@ input[type=number] {
 }
 
 @media (max-width: 450px) {
-  input, select {
+  input, select, button {
     max-width: 140px;
+  }
+
+  button {
+    height: 60px;
   }
 
   header {

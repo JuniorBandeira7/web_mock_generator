@@ -53,7 +53,7 @@ export default function GeradorSection() {
                 </div>
                 <div className="flex flex-row gap-4 mt-4">
                     <span>Nome do Campo</span>
-                    <span className="ml-[75px] span2">Tipo do Campo</span>
+                    <span className="ml-[90px] span2">Tipo do Campo</span>
                 </div>
                 <div className="flex flex-col gap-4 mt-4">
                     {campos.map((campo, index) => (
@@ -90,11 +90,16 @@ export default function GeradorSection() {
                         </div>
                     ))}
                 </div>
-                <div className="flex flex-row gap-4 mt-4">
-                    <Button onClick={enviarEBaixar}>Obter dados</Button>
-                    <Button onClick={adcionarCampo}>Adicionar Campo</Button>
+                <div className="gap-4 flex items-end">
+                    <div>
+                        <span className="flex flex-col mt-4">Número de Linhas</span>
+                        <input type="number" className="mt-2" name="quantidade" id="quantidade" onChange={(e) => { setQuantidade(e.target.valueAsNumber) }}/>
+                    </div>
+                    <Button className="w-[175px]" onClick={adcionarCampo}>Adicionar Campo</Button>
                 </div>
-                Quantidade: <input type="number" className="mt-4" name="quantidade" id="quantidade" onChange={(e) => { setQuantidade(e.target.valueAsNumber) }} />
+                <div className="flex flex-row gap-4 mt-4">
+                    <Button className="w-[207px]" onClick={enviarEBaixar}>Obter dados</Button>
+                </div>
             </section>
         </>
     );
