@@ -4,6 +4,7 @@
 
 
 :root {
+  width: 100%;
   --background: #303030;
   --foreground: #ededed;
 }
@@ -17,5 +18,70 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+input, select {
+  background-color: #303030;
+  color: #ededed;
+  border: 1px solid #ffffff3b;
+  border-radius: 4px;
+  outline: none;
+  padding: 5px;
+}
+
+input:hover {
+  border: 1px solid #ededed;
+}
+
+input:focus {
+  border: 1px solid rgb(59 130 246 / var(--tw-border-opacity, 1));
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
+.gerador-section {
+
+}
+
+@media (min-width: 1500px) {
+  main {
+    max-width: 1500px;
+  }
+}
+
+@media (max-width: 1500px) {
+  main {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 450px) {
+  input, select {
+    max-width: 140px;
+  }
+
+  header {
+    justify-content: flex-start !important;
+  }
+
+  nav {
+    gap: 1rem !important;
+    margin: 15px;
+  }
+
+  .span2 {
+    margin-left: 30px !important;
   }
 }
