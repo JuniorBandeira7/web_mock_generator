@@ -4,12 +4,12 @@ export const Footer = () => {
             <nav className="grid grid-flow-col gap-4 justify-center">
                 <a className="cursor-pointer">Sobre</a>
                 <a className="cursor-pointer">Contato</a>
-                <a className="cursor-pointer">Termos de uso</a>
-                <a className="cursor-pointer">Politica de privacidade</a>
+                <a className="cursor-pointer" href="termos-de-uso">Termos de uso</a>
+                <a className="cursor-pointer" href="privacidade">Politica de privacidade</a>
             </nav>
             <nav>
                 <div className="grid grid-flow-col gap-4 justify-center mt-2">
-                    <a className="cursor-pointer">
+                    <a className="cursor-pointer" href="https://www.linkedin.com/in/julio-bandeira-442515174/" target="_blank">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -20,7 +20,7 @@ export const Footer = () => {
                                 d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                         </svg>
                     </a>
-                    <a className="cursor-pointer">
+                    <a className="cursor-pointer" href="https://github.com/JuniorBandeira7" target="_blank">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
