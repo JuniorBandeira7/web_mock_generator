@@ -2,7 +2,7 @@ export const Footer = () => {
     return (
         <footer className="footer footer-horizontal footer-center bg-gray-800 text-base-content rounded p-10 mt-16">
             <nav className="grid grid-flow-col gap-4 justify-center">
-                <a className="cursor-pointer">Sobre</a>
+                <a className="cursor-pointer" href="/sobre">Sobre</a>
                 <a className="cursor-pointer">Contato</a>
                 <a className="cursor-pointer" href="termos-de-uso">Termos de uso</a>
                 <a className="cursor-pointer" href="privacidade">Politica de privacidade</a>
